@@ -1,0 +1,152 @@
+/* colors */
+$darkBlue: #217093;
+$medBlue: #4eb8dd;
+$bgColor: #f5f5f3;
+
+ion-toolbar {
+  --background: #{$bgColor};
+}
+
+ion-content {
+  --background: #{$bgColor};
+  --overflow: hidden;
+  scroll-behavior: auto !important;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 80px;
+
+  h1 {
+    font-weight: 700;
+    font-size: 26px;
+    color: #010100;
+    margin-bottom: 20px;
+  }
+
+  .svgContainer {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+    pointer-events: none;
+    border: 8px solid #ffffff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+    div {
+      position: relative;
+      width: 100%;
+      height: 0;
+      overflow: hidden;
+      border-radius: 50%;
+      padding-bottom: 100%;
+    }
+
+    .mySVG {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+    }
+  }
+}
+
+#form {
+  margin-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 20px;
+
+  .input-wrapper {
+    margin-bottom: 15px;
+    position: relative;
+
+    ion-input {
+      --highlight-color-focused: #{$medBlue};
+
+      // Make sure text is visible
+      input {
+        color: #010100 !important;
+        -webkit-text-fill-color: #010100 !important;
+      }
+    }
+
+    &.password-wrapper {
+      display: flex;
+      align-items: center;
+      position: relative;
+
+      ion-input {
+        flex: 1;
+      }
+
+      .password-toggle {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 10;
+        --handle-width: 22px;
+        --handle-height: 22px;
+
+        // When OFF - gray background with gray handle
+        --background: #9ca3af;
+        --handle-background: #d1d5db;
+        --handle-background-unchecked: #d1d5db;
+
+        // When ON - blue background with white handle
+        --background-checked: #{$medBlue};
+        --handle-background-checked: #ffffff;
+
+        // Track background
+        --track-background-unchecked: #{$darkBlue};
+      }
+    }
+  }
+
+  .custom-input {
+    --background: #ffffff;
+    --border-radius: 12px;
+    --padding-start: 15px;
+    --padding-end: 50px;
+    --color: #010100;
+    --placeholder-color: #999999;
+    --placeholder-opacity: 0.6;
+    font-size: 16px;
+    min-height: 50px;
+
+    input {
+      color: #010100 !important;
+      font-size: 16px !important;
+      font-weight: 500;
+    }
+  }
+
+  .login-btn {
+    margin-top: 20px;
+    height: 48px;
+    font-size: 18px;
+    text-transform: initial;
+    border-radius: 50px;
+    box-shadow: 1px 8px 8px 0px rgba(0, 0, 0, 0.05);
+    --box-shadow: none;
+    --background: #{$medBlue};
+    --background-activated: #{$darkBlue};
+    --background-hover: #{$darkBlue};
+  }
+}
+
+// Ensure content fits on screen without scrolling
+ion-content::part(scroll) {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100%;
+  overflow: hidden;
+}

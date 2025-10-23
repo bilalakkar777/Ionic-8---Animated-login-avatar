@@ -1,0 +1,7 @@
+{
+  "name": "Animated login avatar",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
